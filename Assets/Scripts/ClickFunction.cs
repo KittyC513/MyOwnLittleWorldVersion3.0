@@ -15,9 +15,6 @@ public class ClickFunction : MonoBehaviour
     public GameObject bed;
     public Player player;
 
-    public GameObject cc;
-    public GameObject loc;
-    public GameObject tt;
 
     public Vector3 target;
 
@@ -28,7 +25,8 @@ public class ClickFunction : MonoBehaviour
     Vector3 bedPos;
 
     public bool GotoSleep = false;
-    public Animator SleepAnimator;
+
+
 
 
 
@@ -42,7 +40,6 @@ public class ClickFunction : MonoBehaviour
         laptopPos = laptop.transform.position;
         bedPos = bed.transform.position;
 
-        SleepAnimator = bed.GetComponent<Animator>();
 
 
 
@@ -102,7 +99,8 @@ public class ClickFunction : MonoBehaviour
     {
         if(GotoSleep == true)
         {
-
+            sleepUI.SetActive(true);
+            GotoSleep = false;
         }
     }
 

@@ -10,7 +10,7 @@ public class TestResult : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        score = GetComponent<Text>();
+        score = this.GetComponent<Text>();
         GenerateResult();
     }
 
