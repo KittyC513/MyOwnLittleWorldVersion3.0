@@ -504,14 +504,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: didCorrect("mentalStates")  == false
-      userScript: AddMentalHealth(-5)
+      userScript: MinusMentalHealth(5)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1129.7709
-        y: 323.8179
+        x: 1130.7417
+        y: 326.73053
         width: 160
         height: 30
     - id: 4
@@ -1292,7 +1292,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1095.475, y: 183.22023}
+    canvasScrollPosition: {x: 1117.8049, y: 214.2882}
     canvasZoom: 1.03
   - id: 2
     fields:

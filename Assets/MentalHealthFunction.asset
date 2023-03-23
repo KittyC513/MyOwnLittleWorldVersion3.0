@@ -20,3 +20,6 @@ MonoBehaviour:
   - functionName: AddMentalHealth
     parameters: 01000000
     returnValue: 0
+  - functionName: MinusMentalHealth
+    parameters: 01000000
+    returnValue: 0
