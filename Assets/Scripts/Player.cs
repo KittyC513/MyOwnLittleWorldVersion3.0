@@ -1,71 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 
 
 public class Player : MonoBehaviour
 {
+    public string mentalStates = "normal";
+    public int value;
 
-  
-
-    //public float speed; //character move speed
-
-
-    //private bool isWalking = false;
-
-
-  
-    //public Actionpoint actionPoint;
-
-    //bool hitBoundary = false;
-    //GameObject[] walls;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public bool didCorrect(string makingSelection)
     {
-
-
-      
-
-
-
-
+        return mentalStates == makingSelection;
     }
 
 
-  
-
-    // Update is called once per frame
-    void Update()
+    public void AddMentalHealth(double amount)
     {
-        if (Input.GetMouseButtonDown(0)|| Input.GetMouseButton(1))
-        {
-          
-
-        }
-        //Move(5);
-        
+        value += (int)amount;
     }
 
-   
 
-
-
-
-
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    void OnEnable()
     {
-        if (collision.gameObject.tag==("Walls"))
-        {
-            hitBoundary = true;
-            Move(0);;
-            animator.SetBool("isWalking", false);
-        }
-        else
-        {
-            hitBoundary = false;
-        }
-        
-    }*/
+        // Make the functions available to Lua: (Replace these lines with your own.)
+        Lua.RegisterFunction(nameof(didCorrect), this, SymbolExtensions.GetMethodInfo(() => didCorrect(string.Empty)));
+        Lua.RegisterFunction(nameof(AddMentalHealth), this, SymbolExtensions.GetMethodInfo(() => AddMentalHealth((double)0)));
+    }
+
+    void OnDisable()
+    {
+        // Remove the functions from Lua: (Replace these lines with your own.)
+        Lua.UnregisterFunction(nameof(didCorrect));
+        Lua.UnregisterFunction(nameof(AddMentalHealth));
+    }
+
 }
