@@ -9,18 +9,34 @@ public class Player : MonoBehaviour
     public string mentalStates = "normal";
     public int value;
 
-    public bool didCorrect(string makingSelection)
+    public MentalHealthBar mentalHealth;
+    public TestResult testResult;
+
+    public int maxValue;
+    public int curValue;
+
+
+    private void Start()
     {
-        return mentalStates == makingSelection;
+        curValue = testResult.result;
+        mentalHealth.SetValue(curValue);
+        
     }
+
 
 
     public void AddMentalHealth(double amount)
     {
+        curValue = value;
         value += (int)amount;
+
+        mentalHealth.SetValue(value);
     }
 
-
+    public bool didCorrect(string makingSelection)
+    {
+        return mentalStates == makingSelection;
+    }
     void OnEnable()
     {
         // Make the functions available to Lua: (Replace these lines with your own.)
@@ -34,5 +50,7 @@ public class Player : MonoBehaviour
         Lua.UnregisterFunction(nameof(didCorrect));
         Lua.UnregisterFunction(nameof(AddMentalHealth));
     }
+
+
 
 }

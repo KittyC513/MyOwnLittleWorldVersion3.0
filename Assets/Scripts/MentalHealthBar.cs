@@ -11,6 +11,7 @@ public class MentalHealthBar : MonoBehaviour
 
     public void SetMaxValue(int value)
     {
+        value = 100;
         slider.maxValue = value;
         slider.value = value;
         
