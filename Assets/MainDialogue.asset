@@ -350,9 +350,10 @@ MonoBehaviour:
 
           Camera(Closeup,Doctor);
 
-          Delay(3);
+          Delay(5);
 
-          SetActive(Speaker);'
+
+'
         type: 0
         typeString: 
       conversationID: 1
@@ -395,7 +396,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -407,15 +408,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 'AudioWait(Classic Alarm Clock - Sound Effect  ProSounds);
+        value: 'SetActive(tag=Doctor, false);
 
-          Fade(in,5,
-          #000000);
+          AudioWait(Classic Alarm
+          Clock - Sound Effect  ProSounds);
+
+          Fade(in,5, #000000);
 
           Camera(Closeup,Clock);
 
           Quake(5);
-
 
           Continue()@7
 
@@ -453,8 +455,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1310.9982
-        y: 248.52548
+        x: 1310.0273
+        y: 249.49634
         width: 160
         height: 30
     - id: 3
@@ -1286,7 +1288,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1100.3293, y: 91.95808}
+    canvasScrollPosition: {x: 1095.475, y: 183.22023}
     canvasZoom: 1.03
   - id: 2
     fields:
