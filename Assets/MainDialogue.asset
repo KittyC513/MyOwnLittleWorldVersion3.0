@@ -503,14 +503,14 @@ MonoBehaviour:
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: didCorrect("mentalStates")  == false
+      userScript: AddMentalHealth(-5)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1131.7125
+        x: 1129.7709
         y: 323.8179
         width: 160
         height: 30
@@ -541,6 +541,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
+        value: didCorrect("mentalStates")  == true
+        type: 0
+        typeString: 
+      - title: Response Menu Sequence
         value: 
         type: 0
         typeString: 
@@ -559,7 +563,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: Variable["goToSleep"] = true
+      userScript: AddMentalHealth(5)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
