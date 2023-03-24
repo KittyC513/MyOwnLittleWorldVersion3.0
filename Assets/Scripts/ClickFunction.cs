@@ -99,13 +99,12 @@ public class ClickFunction : MonoBehaviour
 
     void Sleep()
     {
-        if (player != null)
+        if(player.sleepTime == 1)
         {
             sleepUI.SetActive(true);
-            player.goToSleep = false;
-            goSleep = true;
+            player.sleepTime -= 1;
+            dataCount.PassAday();
         }
-
 
     }
 

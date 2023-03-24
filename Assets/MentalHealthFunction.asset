@@ -26,3 +26,6 @@ MonoBehaviour:
   - functionName: DidSleep
     parameters: 00000000
     returnValue: 0
+  - functionName: Endings
+    parameters: 01000000
+    returnValue: 0
