@@ -15,15 +15,31 @@ public class Player : MonoBehaviour
     public int maxValue;
     public int curValue;
 
+    public bool goToSleep;
+
+    public DataCount dataCount;
+    public GameObject sleepUI;
 
     private void Start()
     {
         curValue = testResult.result;
         mentalHealth.SetValue(curValue);
         value = curValue;
+        dataCount = GetComponent<DataCount>();
+
 
     }
 
+    private void Update()
+    {
+        if (goToSleep && dataCount!=null)
+        {
+            dataCount.PassOneDAY();
+            sleepUI.SetActive(false);
+            goToSleep = false;
+
+        }
+    }
 
 
     public void AddMentalHealth(double amount)
@@ -32,7 +48,13 @@ public class Player : MonoBehaviour
         value += (int)amount;
 
         mentalHealth.SetValue(value);
-        Debug.Log(value);
+
+    }
+
+    public void DidSleep(bool i)
+    {
+        goToSleep = i;
+
     }
 
 
@@ -54,6 +76,7 @@ public class Player : MonoBehaviour
         Lua.RegisterFunction(nameof(didCorrect), this, SymbolExtensions.GetMethodInfo(() => didCorrect(string.Empty)));
         Lua.RegisterFunction(nameof(AddMentalHealth), this, SymbolExtensions.GetMethodInfo(() => AddMentalHealth((double)0)));
         Lua.RegisterFunction(nameof(MinusMentalHealth), this, SymbolExtensions.GetMethodInfo(() => MinusMentalHealth((double)0)));
+        Lua.RegisterFunction(nameof(DidSleep), this, SymbolExtensions.GetMethodInfo(() => DidSleep((bool)false)));
     }
 
     void OnDisable()
@@ -62,6 +85,7 @@ public class Player : MonoBehaviour
         Lua.UnregisterFunction(nameof(didCorrect));
         Lua.UnregisterFunction(nameof(AddMentalHealth));
         Lua.UnregisterFunction(nameof(MinusMentalHealth));
+        Lua.UnregisterFunction(nameof(DidSleep));
     }
 
 

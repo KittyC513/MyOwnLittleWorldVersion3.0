@@ -24,8 +24,8 @@ public class ClickFunction : MonoBehaviour
     Vector3 laptopPos;
     Vector3 bedPos;
 
-    public bool GotoSleep = false;
-
+    public bool goSleep;
+    DataCount dataCount;
 
 
 
@@ -39,6 +39,8 @@ public class ClickFunction : MonoBehaviour
         animator = Player.GetComponent<Animator>();
         laptopPos = laptop.transform.position;
         bedPos = bed.transform.position;
+        player = GetComponent<Player>();
+        dataCount = GetComponent<DataCount>();
 
 
 
@@ -76,9 +78,9 @@ public class ClickFunction : MonoBehaviour
                 target = bedPos;
                 target.z = Player.transform.position.z; // 2d dimension
                 Sleep();
+               
             }
-
-
+            
         }
         Move(5);
     }
@@ -97,11 +99,25 @@ public class ClickFunction : MonoBehaviour
 
     void Sleep()
     {
-        if(GotoSleep == true)
+        if (player != null)
         {
             sleepUI.SetActive(true);
-            GotoSleep = false;
+            player.goToSleep = false;
+            goSleep = true;
         }
+
+
+    }
+
+
+    public void TurnOffSleepUI()
+    {
+        sleepUI.SetActive(false);
+    }
+
+    public void TurnOnSleepUI()
+    {
+        sleepUI.SetActive(true);
     }
 
 

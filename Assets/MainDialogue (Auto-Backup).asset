@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 935899b62f48ae5498594680ed17d133, type: 3}
-  m_Name: MainDialogue
+  m_Name: MainDialogue (Auto-Backup)
   m_EditorClassIdentifier: 
   version: 
   author: 
@@ -40,7 +40,7 @@ MonoBehaviour:
     - title: Name
       value: You
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: Pictures
       value: '[]'
       type: 3
@@ -48,7 +48,7 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: CustomFieldType_Text
+      typeString: 
     - title: IsPlayer
       value: True
       type: 2
@@ -104,7 +104,7 @@ MonoBehaviour:
   - id: 5
     fields:
     - title: Name
-      value: ChatChat
+      value: New Actor 5
       type: 0
       typeString: 
     - title: Pictures
@@ -352,6 +352,7 @@ MonoBehaviour:
 
           Delay(5);
 
+
 '
         type: 0
         typeString: CustomFieldType_Text
@@ -420,7 +421,10 @@ MonoBehaviour:
 
           Camera(Closeup,Clock);
 
-          Quake(5);'
+          Quake(5);
+
+
+'
         type: 0
         typeString: CustomFieldType_Text
       - title: EventGuid
@@ -442,7 +446,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: '
+      userScript: 'SetQuestState("UNDEFINED", "unassigned");
 
 '
       onExecute:
@@ -515,8 +519,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1124.4039
-        y: 329.65262
+        x: 1129.7611
+        y: 327.86688
         width: 160
         height: 30
     - id: 4
@@ -580,8 +584,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1628.0665
-        y: 291.838
+        x: 1626.89
+        y: 289.48508
         width: 160
         height: 30
     - id: 5
@@ -1345,7 +1349,7 @@ MonoBehaviour:
       - title: Sequence
         value: 'Camera(Closeup,Clock);
 
-          Continue(5);
+          Continue(1);
 
 '
         type: 0
@@ -1381,8 +1385,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1330.5603
-        y: 184.34692
+        x: 1359.1317
+        y: 280.90152
         width: 160
         height: 30
     - id: 21
@@ -1491,8 +1495,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1001.89716, y: 0}
-    canvasZoom: 0.85000026
+    canvasScrollPosition: {x: 1194.7162, y: 844.2583}
+    canvasZoom: 0.7000004
   - id: 2
     fields:
     - title: Title
@@ -1550,11 +1554,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 2
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1576,13 +1580,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 2
-        originDialogueID: 0
-        destinationConversationID: 2
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
       onExecute:
@@ -1592,112 +1590,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 129
         y: 45
-        width: 160
-        height: 30
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: Hello
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 2
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 2
-        originDialogueID: 1
-        destinationConversationID: 2
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 142
-        y: 175
-        width: 160
-        height: 30
-    - id: 2
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: 'coming
-
-'
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 2
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 142
-        y: 225
         width: 160
         height: 30
     entryGroups: []
