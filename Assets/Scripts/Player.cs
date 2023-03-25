@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PixelCrushers.DialogueSystem;
+using UnityEngine.SceneManagement;
 
 
 public class Player : MonoBehaviour
 {
     public string mentalStates = "normal";
+    public string endStates = "normal";
     public int value;
 
     public MentalHealthBar mentalHealth;
@@ -41,32 +43,32 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(endings == 1 && curValue >=80)
+        if(endings == 1 && curValue >= 80)
         {
-            ending1.SetActive(true);
-            UIs.SetActive(false);
+            SceneManager.LoadScene(1);
         }
 
-        if (endings == 2 || endings == 3)
+        if (endings == 1 || endings == 2)
         {
-            if (curValue < 70 && curValue >= 50)
+            if (curValue < 80 && curValue >= 50)
             {
-                ending2.SetActive(true);
-                UIs.SetActive(false);
+                SceneManager.LoadScene(2);
             }
 
         }
 
-        if (endings == 3 && curValue >=80)
+        if (endings == 2 && curValue >=80)
         {
-            ending3.SetActive(true);
-            UIs.SetActive(false);
+            SceneManager.LoadScene(3);
         }
 
-        if (endings == 4 && curValue < 50)
+        if (endings == 1 || endings == 2)
         {
-            ending4.SetActive(true);
-            UIs.SetActive(false);
+            if(curValue < 50)
+            {
+                SceneManager.LoadScene(4);
+            }
+
         }
 
     }
@@ -78,13 +80,18 @@ public class Player : MonoBehaviour
         value += (int)amount;
 
         mentalHealth.SetValue(value);
-        value = curValue;
+        curValue = value;
+        Debug.Log("curValue =" + curValue);
 
     }
 
     public void Endings(double amount)
     {
         endings += (int)amount;
+        Debug.Log("2");
+        Debug.Log("curvalue ="+curValue);
+
+
     }
 
     public void DidSleep(double amount)
@@ -100,12 +107,18 @@ public class Player : MonoBehaviour
         value -= (int)amount;
 
         mentalHealth.SetValue(value);
-        value = curValue;
+        curValue = value;
+        Debug.Log("curValue = " + curValue);
 
     }
     public bool didCorrect(string makingSelection)
     {
         return mentalStates == makingSelection;
+    }
+
+    public bool ReachEnd(string endSelection)
+    {
+        return endStates == endSelection;
     }
     void OnEnable()
     {
@@ -114,6 +127,8 @@ public class Player : MonoBehaviour
         Lua.RegisterFunction(nameof(AddMentalHealth), this, SymbolExtensions.GetMethodInfo(() => AddMentalHealth((double)0)));
         Lua.RegisterFunction(nameof(MinusMentalHealth), this, SymbolExtensions.GetMethodInfo(() => MinusMentalHealth((double)0)));
         Lua.RegisterFunction(nameof(DidSleep), this, SymbolExtensions.GetMethodInfo(() => DidSleep((double)0)));
+
+        Lua.RegisterFunction(nameof(ReachEnd), this, SymbolExtensions.GetMethodInfo(() => ReachEnd(string.Empty)));
         Lua.RegisterFunction(nameof(Endings), this, SymbolExtensions.GetMethodInfo(() => Endings((double)0)));
     }
 

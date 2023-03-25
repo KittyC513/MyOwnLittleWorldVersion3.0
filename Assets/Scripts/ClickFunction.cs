@@ -62,12 +62,13 @@ public class ClickFunction : MonoBehaviour
         //if mouse-left button is pressed, it will raycast a position from mouse to detect if the mouse is clicking an object
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("1");
+
             if (hit2d.collider != null && hit2d.collider.gameObject.tag == "Laptop")
             {
 
                 target = laptopPos;
                 target.z = Player.transform.position.z; // 2d dimension
+
 
             }
 
@@ -99,12 +100,10 @@ public class ClickFunction : MonoBehaviour
 
     void Sleep()
     {
-        if(player.sleepTime == 1)
-        {
-            sleepUI.SetActive(true);
-            player.sleepTime -= 1;
-            dataCount.PassAday();
-        }
+
+        sleepUI.SetActive(true);
+        player.sleepTime =0;
+        dataCount.PassAday();
 
     }
 

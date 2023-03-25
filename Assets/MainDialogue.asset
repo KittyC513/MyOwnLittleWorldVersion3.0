@@ -861,11 +861,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Get up for school
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Get up for school
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -897,7 +897,7 @@ MonoBehaviour:
       conditionsString: 
       userScript: 'MinusMentalHealth(5);
 
-        Variable["goToSleep"] = false'
+        Variable["goToSleep"] = false;'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -926,11 +926,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Ignore and continue to sleep
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Ignore and continue to sleep
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -962,14 +962,14 @@ MonoBehaviour:
       conditionsString: 
       userScript: 'AddMentalHealth(5);
 
-        Variable["goToSleep"] = true'
+        Variable["goToSleep"] = true;'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1628.0665
-        y: 291.838
+        y: 287.78467
         width: 160
         height: 30
     - id: 5
@@ -995,12 +995,15 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "You pop up on the bed and close the alert on your phone, you take
-          a look at the calendar and see a big red circle on today\u2019s date."
+        value: 'You pop up on the bed and close the alert on your phone, '
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: SwitchCamera(Main Camera)
+        value: 'SwitchCamera(Main Camera);
+
+          AudioWait(Yawn)
+
+          wait(5);'
         type: 0
         typeString: CustomFieldType_Text
       - title: EventGuid
@@ -1018,7 +1021,7 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 5
         destinationConversationID: 1
-        destinationDialogueID: 8
+        destinationDialogueID: 23
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1028,8 +1031,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1212.4
-        y: 516.61743
+        x: 1152.671
+        y: 444.4314
         width: 160
         height: 30
     - id: 7
@@ -1087,7 +1090,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1735.3231
+        x: 1736.2941
         y: 412.63297
         width: 160
         height: 30
@@ -1735,6 +1738,8 @@ MonoBehaviour:
       - title: Sequence
         value: 'Camera(Closeup,Clock);
 
+          wait(5);
+
 
 '
         type: 0
@@ -1797,12 +1802,16 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "You pop up on the bed and close the alert on your phone, you take
-          a look at the calendar and see a big red circle on today\u2019s date."
+        value: You pop up on the bed and close the alert on your phone.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: SwitchCamera(Main Camera)
+        value: 'SwitchCamera(Main Camera);
+
+          AudioWait(Yawn)
+
+
+          wait(5);'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1816,7 +1825,7 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 21
         destinationConversationID: 1
-        destinationDialogueID: 8
+        destinationDialogueID: 24
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1869,10 +1878,11 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'DidSleep(true);
+      userScript: '
 
-        Variable["Date"] = Variable["Date"] +
-        1'
+        Variable["Date"] = Variable["Date"] + 1;
+
+        DidSleep(1)'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -1882,8 +1892,128 @@ MonoBehaviour:
         y: 1489.3702
         width: 160
         height: 30
-    entryGroups: []
-    canvasScrollPosition: {x: 616.6414, y: 597.14355}
+    - id: 23
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "you take a look at the calendar and see a big red circle on today\u2019s
+          date."
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 23
+        destinationConversationID: 1
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1152.671
+        y: 494.4314
+        width: 160
+        height: 30
+    - id: 24
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "you take a look at the calendar and see a big red circle on today\u2019s
+          date."
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 24
+        destinationConversationID: 1
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1654.2533
+        y: 577.7994
+        width: 160
+        height: 30
+    entryGroups:
+    - name: Group
+      rect:
+        serializedVersion: 2
+        x: 1951.2097
+        y: 336.70874
+        width: 1
+        height: 1
+      color: {r: 1, g: 1, b: 1, a: 0.5}
+    canvasScrollPosition: {x: 962.4177, y: 151.06389}
     canvasZoom: 0.9400002
   - id: 2
     fields:
@@ -1958,7 +2088,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: AudioWait(IPhone Notification Sound ( Default Notification Sound )
+          Ios 14 Notification Sound_1)
+        type: 0
+        typeString: 
+      - title: EventGuid
+        value: e3785c9f-f5ae-42dd-b908-1718fa393584
         type: 0
         typeString: 
       conversationID: 2
@@ -1976,14 +2111,17 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: Variable["Date"] == 2
-      userScript: ShowAlert("You are accepetd into the group")
+      userScript: 'ShowAlert("You are accepetd into the group");
+
+        SetQuestState("UNDEFINED",
+        "unassigned")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 129
-        y: 45
+        x: 190
+        y: 54
         width: 160
         height: 30
     - id: 1
@@ -1997,7 +2135,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: -1
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -2016,6 +2154,10 @@ MonoBehaviour:
         value: Delay(5)
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 
+        type: 0
+        typeString: 
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -2037,8 +2179,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 181
-        y: 134
+        x: 190
+        y: 108
         width: 160
         height: 30
     - id: 2
@@ -2093,8 +2235,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 99
-        y: 202
+        x: 190
+        y: 162
         width: 160
         height: 30
     - id: 3
@@ -2108,7 +2250,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: -1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -2122,8 +2264,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "\"Here's the rules: \n1. Add your rank before your name. For example
           LV.XX - URNAME\n2.Everyone is welcome to have a say.\n3.We listen to each
-          other, and show respect for each other.\n4.No inappropriate language\n5.No
-          hate speech or bullying\n...\")"
+          other, and show respect for each other.\n"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -2141,7 +2282,7 @@ MonoBehaviour:
       - originConversationID: 2
         originDialogueID: 3
         destinationConversationID: 2
-        destinationDialogueID: 4
+        destinationDialogueID: 37
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -2151,8 +2292,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 114
-        y: 296
+        x: 190
+        y: 216
         width: 160
         height: 30
     - id: 4
@@ -2206,8 +2347,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 102
-        y: 412
+        x: 190
+        y: 324
         width: 160
         height: 30
     - id: 5
@@ -2261,8 +2402,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 72
-        y: 538
+        x: 190
+        y: 378
         width: 160
         height: 30
     - id: 6
@@ -2316,8 +2457,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 59.80487
-        y: 711.1707
+        x: 190
+        y: 432
         width: 160
         height: 30
     - id: 7
@@ -2374,8 +2515,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 58.585358
-        y: 845.3171
+        x: 190
+        y: 486
         width: 160
         height: 30
     - id: 8
@@ -2429,8 +2570,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 67.12193
-        y: 1025.8049
+        x: 190
+        y: 540
         width: 160
         height: 30
     - id: 9
@@ -2484,8 +2625,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 343.95114
-        y: 1095.3173
+        x: 190
+        y: 594
         width: 160
         height: 30
     - id: 10
@@ -2539,8 +2680,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 332.97556
-        y: 1218.488
+        x: 190
+        y: 648
         width: 160
         height: 30
     - id: 11
@@ -2594,8 +2735,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 324.43896
-        y: 1350.1954
+        x: 190
+        y: 702
         width: 160
         height: 30
     - id: 12
@@ -2649,8 +2790,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 336.6341
-        y: 1458.732
+        x: 190
+        y: 756
         width: 160
         height: 30
     - id: 13
@@ -2704,8 +2845,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 315.90237
-        y: 1544.0979
+        x: 190
+        y: 810
         width: 160
         height: 30
     - id: 14
@@ -2759,8 +2900,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 309.80484
-        y: 1638.0004
+        x: 190
+        y: 864
         width: 160
         height: 30
     - id: 15
@@ -2814,8 +2955,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 304.9268
-        y: 1758.732
+        x: 190
+        y: 918
         width: 160
         height: 30
     - id: 16
@@ -2869,8 +3010,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 300.04874
-        y: 1869.7078
+        x: 190
+        y: 972
         width: 160
         height: 30
     - id: 17
@@ -2924,8 +3065,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 301.26825
-        y: 2020.9274
+        x: 190
+        y: 1026
         width: 160
         height: 30
     - id: 18
@@ -2991,8 +3132,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 304.9268
-        y: 2102.6345
+        x: 190
+        y: 1080
         width: 160
         height: 30
     - id: 19
@@ -3014,11 +3155,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Respond
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Respond
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -3046,8 +3187,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 36.634163
-        y: 2213.61
+        x: 20
+        y: 1134
         width: 160
         height: 30
     - id: 20
@@ -3069,11 +3210,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Remind Group Rules
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Remind Group Rules
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -3101,8 +3242,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 306.1463
-        y: 2195.3176
+        x: 190
+        y: 1134
         width: 160
         height: 30
     - id: 21
@@ -3124,11 +3265,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Ignore
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Ignore
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -3156,8 +3297,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 592.7316
-        y: 2209.9514
+        x: 360
+        y: 1136.3256
         width: 160
         height: 30
     - id: 22
@@ -3211,8 +3352,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 28.097572
-        y: 2307.5127
+        x: 20
+        y: 1188
         width: 160
         height: 30
     - id: 23
@@ -3267,8 +3408,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 309.80484
-        y: 2311.1711
+        x: 192.32559
+        y: 1188
         width: 160
         height: 30
     - id: 24
@@ -3322,8 +3463,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 596.39014
-        y: 2302.6343
+        x: 360
+        y: 1188
         width: 160
         height: 30
     - id: 25
@@ -3377,8 +3518,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 26.878052
-        y: 2403.854
+        x: 20
+        y: 1242
         width: 160
         height: 30
     - id: 26
@@ -3432,8 +3573,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 22.000008
-        y: 2486.7808
+        x: 20
+        y: 1296
         width: 160
         height: 30
     - id: 27
@@ -3487,8 +3628,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 22.000008
-        y: 2536.7808
+        x: 20
+        y: 1350
         width: 160
         height: 30
     - id: 28
@@ -3542,8 +3683,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 13.463417
-        y: 2598.9758
+        x: 20
+        y: 1404
         width: 160
         height: 30
     - id: 29
@@ -3606,8 +3747,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 13.463417
-        y: 2648.9758
+        x: 20
+        y: 1458
         width: 160
         height: 30
     - id: 30
@@ -3661,8 +3802,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 311.02435
-        y: 2408.732
+        x: 190
+        y: 1242
         width: 160
         height: 30
     - id: 31
@@ -3716,8 +3857,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 309.80484
-        y: 2512.3904
+        x: 190
+        y: 1296
         width: 160
         height: 30
     - id: 32
@@ -3776,8 +3917,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 301.26825
-        y: 2598.9758
+        x: 190
+        y: 1350
         width: 160
         height: 30
     - id: 33
@@ -3831,8 +3972,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 596.39014
-        y: 2352.6343
+        x: 360
+        y: 1242
         width: 160
         height: 30
     - id: 34
@@ -3886,8 +4027,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 589.07306
-        y: 2433.122
+        x: 360
+        y: 1296
         width: 160
         height: 30
     - id: 35
@@ -3950,8 +4091,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 590.2926
-        y: 2525.805
+        x: 360
+        y: 1350
         width: 160
         height: 30
     - id: 36
@@ -3984,6 +4125,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 0a9d4594-221e-4124-8af8-246bfb1cb001
+        type: 0
+        typeString: 
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -3993,19 +4138,83 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: ShowAlert("It's 3 AM!!!");
+      userScript: 'ShowAlert("It''s 3 AM!!!");
+
+        DidSleep(1);
+
+        Variable["Date"]
+        = Variable["Date"] + 1'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 293.15076
-        y: 2769.2883
+        x: 20
+        y: 1512
+        width: 160
+        height: 30
+    - id: 37
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: '4.No inappropriate language
+
+          5.No hate speech or bullying
+
+          ...")'
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 2
+        originDialogueID: 37
+        destinationConversationID: 2
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 190
+        y: 270
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 50, y: 1.5625}
-    canvasZoom: 0.64000034
+    canvasScrollPosition: {x: 0, y: 753.3907}
+    canvasZoom: 0.6700003
   - id: 3
     fields:
     - title: Title
@@ -4079,7 +4288,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: None()
+        value: AudioWait(IPhone Notification Sound ( Default Notification Sound )
+          Ios 14 Notification Sound_1)
         type: 0
         typeString: 
       conversationID: 3
@@ -5242,11 +5452,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Fight Back
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Fight Back
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5297,11 +5507,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Ignore
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Ignore
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5352,11 +5562,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Follow to him
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Follow to him
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -5549,8 +5759,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 76.60979
-        y: 2546.7932
+        x: 80.24614
+        y: 2644.975
         width: 160
         height: 30
     - id: 27
@@ -6491,7 +6701,10 @@ MonoBehaviour:
       conditionsString: 
       userScript: 'AddMentalHealth(10);
 
-        ShowAlert(" +10 Mental Health");'
+        ShowAlert(" +10 Mental Health");
+
+        Variable["Date"]
+        = Variable["Date"] + 1'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6531,6 +6744,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 857b7657-9211-4eb6-820c-47982a65e8c4
+        type: 0
+        typeString: 
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -6543,7 +6760,9 @@ MonoBehaviour:
       userScript: 'ShowAlert("It''s 3 AM AGAIN!!!");
 
         Variable["Date"] =
-        Variable["Date"] + 1'
+        Variable["Date"] + 1;
+
+        DidSleep(1)'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -6554,8 +6773,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 3379.4504}
-    canvasZoom: 0.73000026
+    canvasScrollPosition: {x: 0, y: 1.8181763}
+    canvasZoom: 0.5500004
   - id: 4
     fields:
     - title: Title
@@ -6629,7 +6848,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: None()
+        value: AudioWait(IPhone Notification Sound ( Default Notification Sound )
+          Ios 14 Notification Sound_1)
         type: 0
         typeString: 
       conversationID: 4
@@ -6709,7 +6929,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 228
-        y: 128
+        y: 129.92307
         width: 160
         height: 30
     - id: 2
@@ -7183,11 +7403,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Fight Back/Explain
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Fight Back/Explain
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -7216,7 +7436,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 363.8687
-        y: 1119.2302
+        y: 1121.0485
         width: 160
         height: 30
     - id: 11
@@ -7238,11 +7458,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Follow to him
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Follow to him
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -7293,11 +7513,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Ignore
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Ignore(-10/-20/-50)
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -8503,6 +8723,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 91f30c7d-d4bb-456b-a53d-71391f256c93
+        type: 0
+        typeString: 
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -8512,10 +8736,12 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 'ShowAlert("Go To Bed;)
+      userScript: 'ShowAlert("Go To Bed");
 
         Variable["Date"] = Variable["Date"]
-        + 1'
+        + 1;
+
+        DidSleep(1)'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -8527,7 +8753,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.73000026
+    canvasZoom: 0.46000046
   - id: 5
     fields:
     - title: Title
@@ -8601,7 +8827,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: None()
+        value: AudioWait(IPhone Notification Sound ( Default Notification Sound )
+          Ios 14 Notification Sound_1)
         type: 0
         typeString: 
       conversationID: 5
@@ -9492,17 +9719,21 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Explain
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Explain
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 7ba43b5f-e8d1-4a48-81e0-17023e7f8cfe
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -9547,11 +9778,11 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: 
+        value: Watch
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Watch
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -9614,6 +9845,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: a041a39f-dafb-4492-8a24-6645f5999552
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -9635,7 +9870,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 154.207
+        x: 152.6445
         y: 1713.6094
         width: 160
         height: 30
@@ -10176,28 +10411,16 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 5
-        originDialogueID: 28
-        destinationConversationID: 5
-        destinationDialogueID: 65
-        isConnector: 0
-        priority: 2
-      - originConversationID: 5
-        originDialogueID: 28
-        destinationConversationID: 5
-        destinationDialogueID: 66
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Endings(1)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1014.5383
-        y: 3101.4731
+        x: 1007.7042
+        y: 3104.1758
         width: 160
         height: 30
     - id: 29
@@ -10735,21 +10958,9 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 5
-        originDialogueID: 38
-        destinationConversationID: 5
-        destinationDialogueID: 65
-        isConnector: 0
-        priority: 2
-      - originConversationID: 5
-        originDialogueID: 38
-        destinationConversationID: 5
-        destinationDialogueID: 66
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Endings(1)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -11241,13 +11452,13 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 47
         destinationConversationID: 5
-        destinationDialogueID: 48
+        destinationDialogueID: 49
         isConnector: 0
         priority: 2
       - originConversationID: 5
         originDialogueID: 47
         destinationConversationID: 5
-        destinationDialogueID: 49
+        destinationDialogueID: 68
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -11292,6 +11503,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 320b0cca-7d94-41fd-8365-538eb3427fa4
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -11313,7 +11528,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1028.5114
+        x: 1027.0188
         y: 1717.9597
         width: 160
         height: 30
@@ -11340,7 +11555,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 
+        value: Watch
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -11403,6 +11618,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 2ada2e40-4c90-4359-bea8-d26aa7651a22
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -11536,7 +11755,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1017.5525
-        y: 2050.1516
+        y: 2054.6292
         width: 160
         height: 30
     - id: 53
@@ -12203,132 +12422,6 @@ MonoBehaviour:
         y: 2648.1091
         width: 160
         height: 30
-    - id: 65
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: 'You made some friends online when playing Dominion!
-
-
-          You
-          won''t be troubled by those toxic things on the Internet
-
-
-          You
-          know that there are much more too care about in the real world.
-
-
-          There
-          is nothing to worry about. No need to pay attention to those clowns on
-          the internet.
-
-'
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 5
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: Endings(1)
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1217.634
-        y: 3372.0627
-        width: 160
-        height: 30
-    - id: 66
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: 'You have been diagnosed with depression and anxiety disorder.
-
-
-          You
-          refuse to talk to your parents, and you have to take medicines to make
-          you feel better.
-
-
-          You suffer from the words on social media,
-          but you just can''t stop using the Inetrnet
-
-
-          Since it is the
-          only little world you have.'
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 5
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: Endings(2)
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1698.1743
-        y: 3358.7456
-        width: 160
-        height: 30
     - id: 67
       fields:
       - title: Title
@@ -12366,28 +12459,12 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 5
-        originDialogueID: 67
-        destinationConversationID: 5
-        destinationDialogueID: 68
-        isConnector: 0
-        priority: 2
-      - originConversationID: 5
-        originDialogueID: 67
-        destinationConversationID: 5
-        destinationDialogueID: 69
-        isConnector: 0
-        priority: 2
-      - originConversationID: 5
-        originDialogueID: 67
-        destinationConversationID: 5
-        destinationDialogueID: 66
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
-      userScript: ShowAlert("Your account is suspended temporally due to multiple
+      userScript: 'ShowAlert("Your account is suspended temporally due to multiple
         reports.")
+
+        Endings(2)'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -12408,11 +12485,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 23
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
+        value: -1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -12420,26 +12497,17 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'You deleted the game and left the chat group.
-
-
-          You won''t
-          be troubled by those toxic things on the Internet
-
-
-          You know
-          that there are much more too care about in the real world.
-
-
-          There
-          is nothing to worry about. No need to pay attention to those clowns on
-          the internet'
+        value: Explain
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 4794cfb2-2a82-42ad-9e18-250edd7cbda0
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -12447,122 +12515,27 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 68
+        destinationConversationID: 5
+        destinationDialogueID: 48
+        isConnector: 0
+        priority: 2
       conditionsString: 
-      userScript: Endings(3)
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2123.921
-        y: 3351.0464
-        width: 160
-        height: 30
-    - id: 69
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: 'You feel the world''s disgusting.
-
-
-          The people on the Internet...
-
-
-          Their
-          vicious words...
-
-
-          The society...
-
-
-          Everything is disgusting.
-
-
-          You
-          cannot stop thinking about end yourself.
-
-
-          You can still hear
-          those people saying...
-
-
-          "Kill yourself, cheater"
-
-
-          "F**king
-          b*tch"
-
-
-          "You play like s**t"
-
-
-          You turn on the camera,
-          start the streaming in the group. The cold wind almost blown your phone
-          away.
-
-
-          You can still see people lauging at you behind the screen.
-
-
-          "Just
-          jump!"
-
-
-          "Boring!"
-
-
-          You close your eyes, and take
-          a leap into the air.
-
-'
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 5
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: Endings(4)
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 2463.462
-        y: 3311.0173
+        x: 1060.9829
+        y: 1600.9143
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1601.0651, y: 2807.2617}
-    canvasZoom: 0.6700003
+    canvasScrollPosition: {x: 0, y: 1335.0334}
+    canvasZoom: 0.64000034
   syncInfo:
     syncActors: 0
     syncItems: 0

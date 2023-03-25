@@ -609,7 +609,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Initial Value
-      value: 2
+      value: 1
       type: 1
       typeString: CustomFieldType_Number
     - title: Description
@@ -760,14 +760,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: ShowAlert("Here's your Mental Health");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 1318.7943
-        y: 1
+        y: 16.533981
         width: 160
         height: 30
     - id: 2
@@ -1059,7 +1059,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: wait(5);
         type: 0
         typeString: CustomFieldType_Text
       - title: EventGuid
@@ -1180,7 +1180,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: Camera(Closeup,Clock);
+        value: 'Camera(Closeup,Clock);
+
+          wait(5);'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1290,7 +1292,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: wait(5);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1865,13 +1867,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 1
-        originDialogueID: 22
-        destinationConversationID: 2
-        destinationDialogueID: 0
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 'DidSleep(true);
 
@@ -1887,8 +1883,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1066.5999, y: 237.87012}
-    canvasZoom: 1.0000001
+    canvasScrollPosition: {x: 616.6414, y: 597.14355}
+    canvasZoom: 0.9400002
   - id: 2
     fields:
     - title: Title
@@ -1946,7 +1942,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: -1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -4008,7 +4004,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 2375.5552}
+    canvasScrollPosition: {x: 50, y: 1.5625}
     canvasZoom: 0.64000034
   - id: 3
     fields:
@@ -12232,14 +12228,11 @@ MonoBehaviour:
       - title: Dialogue Text
         value: 'You made some friends online when playing Dominion!
 
-
           You
           won''t be troubled by those toxic things on the Internet
 
-
           You
           know that there are much more too care about in the real world.
-
 
           There
           is nothing to worry about. No need to pay attention to those clowns on
@@ -12252,6 +12245,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 7c20db13-dd88-4ca1-9cca-1fc05d713070
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -12264,7 +12261,19 @@ MonoBehaviour:
       userScript: Endings(1)
       onExecute:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: 
+            m_MethodName: 
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       canvasRect:
         serializedVersion: 2
         x: 1217.634
@@ -12296,15 +12305,12 @@ MonoBehaviour:
       - title: Dialogue Text
         value: 'You have been diagnosed with depression and anxiety disorder.
 
-
           You
           refuse to talk to your parents, and you have to take medicines to make
           you feel better.
 
-
           You suffer from the words on social media,
           but you just can''t stop using the Inetrnet
-
 
           Since it is the
           only little world you have.'
@@ -12314,6 +12320,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 05df8df2-c26c-45a0-bb3c-1274fbfdc08a
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -12426,14 +12436,11 @@ MonoBehaviour:
       - title: Dialogue Text
         value: 'You deleted the game and left the chat group.
 
-
           You won''t
           be troubled by those toxic things on the Internet
 
-
-          You know
-          that there are much more too care about in the real world.
-
+          You know that
+          there are much more too care about in the real world.
 
           There
           is nothing to worry about. No need to pay attention to those clowns on
@@ -12444,6 +12451,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 75093884-24b6-4929-9c22-6a698984bea8
+        type: 0
+        typeString: 
       conversationID: 5
       isRoot: 0
       isGroup: 0
@@ -12488,57 +12499,151 @@ MonoBehaviour:
       - title: Dialogue Text
         value: 'You feel the world''s disgusting.
 
-
           The people on the Internet...
-
 
           Their
           vicious words...
 
-
           The society...
-
 
           Everything is disgusting.
 
-
           You
-          cannot stop thinking about end yourself.
+          cannot stop thinking about end yourself.'
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 520acd6f-6423-4b24-8e1d-d8730093fcaf
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 69
+        destinationConversationID: 5
+        destinationDialogueID: 70
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: Endings(4)
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2463.462
+        y: 3311.0173
+        width: 160
+        height: 30
+    - id: 70
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: 'You can still hear those people saying...
 
+          "Kill yourself,
+          cheater"
 
-          You can still hear
-          those people saying...
-
-
-          "Kill yourself, cheater"
-
-
-          "F**king
-          b*tch"
-
+          "F**king b*tch"
 
           "You play like s**t"
 
+          You
+          turn on the camera, start the streaming in the group. The cold '
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 70
+        destinationConversationID: 5
+        destinationDialogueID: 71
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2483.462
+        y: 3444.6538
+        width: 160
+        height: 30
+    - id: 71
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: 'wind almost blown your phone away.
 
-          You turn on the camera,
-          start the streaming in the group. The cold wind almost blown your phone
-          away.
+          You can still see people
+          lauging at you behind the screen.
 
-
-          You can still see people lauging at you behind the screen.
-
-
-          "Just
-          jump!"
-
+          "Just jump!"
 
           "Boring!"
 
-
-          You close your eyes, and take
-          a leap into the air.
-
-'
+          You
+          close your eyes, and take a leap into the air.'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -12554,19 +12659,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Endings(4)
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2463.462
-        y: 3311.0173
+        x: 2454.3708
+        y: 3560.1084
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1601.0651, y: 2807.2617}
-    canvasZoom: 0.6700003
+    canvasScrollPosition: {x: 1531.303, y: 2909.3687}
+    canvasZoom: 0.5500004
   syncInfo:
     syncActors: 0
     syncItems: 0
