@@ -30,6 +30,12 @@ public class Player : MonoBehaviour
     public GameObject ending4;
     public GameObject UIs;
 
+    public GameObject increased;
+    public GameObject descreased;
+
+    AudioSource increasing;
+    AudioSource decreasing;
+
 
     private void Start()
     {
@@ -37,6 +43,9 @@ public class Player : MonoBehaviour
         mentalHealth.SetValue(curValue);
         value = curValue;
         dataCount = GetComponent<DataCount>();
+
+        increasing = increased.GetComponent<AudioSource>();
+        decreasing = descreased.GetComponent<AudioSource>();
 
 
     }
@@ -82,6 +91,7 @@ public class Player : MonoBehaviour
         mentalHealth.SetValue(value);
         curValue = value;
         Debug.Log("curValue =" + curValue);
+        increasing.Play();
 
     }
 
@@ -109,6 +119,7 @@ public class Player : MonoBehaviour
         mentalHealth.SetValue(value);
         curValue = value;
         Debug.Log("curValue = " + curValue);
+        decreasing.Play();
 
     }
     public bool didCorrect(string makingSelection)
