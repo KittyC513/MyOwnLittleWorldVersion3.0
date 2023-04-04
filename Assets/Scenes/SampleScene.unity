@@ -2551,7 +2551,7 @@ MonoBehaviour:
   condition:
     luaConditions:
     - 
-    - Variable["Date"] == 1
+    - Variable["Date"] == 2
     questConditions: []
     acceptedTags:
     - Player
@@ -2659,7 +2659,7 @@ MonoBehaviour:
   trigger: 32
   condition:
     luaConditions:
-    - 
+    - Variable["Date"] ==5
     questConditions: []
     acceptedTags: []
     acceptedGameObjects: []
@@ -2733,7 +2733,7 @@ MonoBehaviour:
   trigger: 32
   condition:
     luaConditions:
-    - Variable["Date"] == 3
+    - Variable["Date"] ==4
     questConditions: []
     acceptedTags: []
     acceptedGameObjects: []
@@ -2807,7 +2807,7 @@ MonoBehaviour:
   trigger: 32
   condition:
     luaConditions:
-    - Variable["Date"] == 2
+    - Variable["Date"] ==3
     questConditions: []
     acceptedTags: []
     acceptedGameObjects: []
